@@ -31,11 +31,16 @@ namespace BankingWindowsFormsApp
 
             contas[2] = new ContaCorrente(3);
             contas[2].Titular = new Cliente("Renato");
+
+            foreach (Conta conta in contas)
+            {
+                comboContas.Items.Add("Titular: " + conta.Titular.Nome);
+            }
         }
 
         private void botaoDeposito_Click(object sender, EventArgs e)
         {
-            int indice = Convert.ToInt32(textoIndice.Text);
+            int indice = comboContas.SelectedIndex;
             Conta selecionada = this.contas[indice];
 
             double valorOperacao = Convert.ToDouble(textoValor.Text);
@@ -45,7 +50,7 @@ namespace BankingWindowsFormsApp
 
         private void botaoSaque_Click(object sender, EventArgs e)
         {
-            int indice = Convert.ToInt32(textoIndice.Text);
+            int indice = comboContas.SelectedIndex;
             Conta selecionada = this.contas[indice];
 
             double valorOperacao = Convert.ToDouble(textoValor.Text);
@@ -55,10 +60,10 @@ namespace BankingWindowsFormsApp
             }
         }
 
-        private void botaoBusca_Click(object sender, EventArgs e)
+        private void comboContas_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int indice = Convert.ToInt32(textoIndice.Text);
-            Conta selecionada = this.contas[indice];
+            int indice = comboContas.SelectedIndex;
+            Conta selecionada = contas[indice];
             textoNumero.Text = Convert.ToString(selecionada.Numero);
             textoTitular.Text = selecionada.Titular.Nome;
             textoSaldo.Text = Convert.ToString(selecionada.Saldo);
