@@ -13,6 +13,7 @@ namespace BankingWindowsFormsApp
     public partial class Form1 : Form
     {
         private Conta[] contas;
+        private int numeroDeContas;
 
         public Form1()
         {
@@ -21,21 +22,19 @@ namespace BankingWindowsFormsApp
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            contas = new Conta[3];
+            this.contas = new Conta[10];
 
-            contas[0] = new Conta(1);
-            contas[0].Titular = new Cliente("Leonardo");
+            Conta c1 = new Conta(1);
+            c1.Titular = new Cliente("Leonardo");
+            AdicionaConta(c1);
 
-            contas[1] = new ContaPoupanca(2);
-            contas[1].Titular = new Cliente("Felipe");
+            Conta c2 = new ContaPoupanca(2);
+            c2.Titular = new Cliente("Felipe");
+            AdicionaConta(c2);
 
-            contas[2] = new ContaCorrente(3);
-            contas[2].Titular = new Cliente("Renato");
-
-            foreach (Conta conta in contas)
-            {
-                comboContas.Items.Add("Titular: " + conta.Titular.Nome);
-            }
+            Conta c3 = new ContaCorrente(3);
+            c3.Titular = new Cliente("Renato");
+            AdicionaConta(c3);
         }
 
         private void botaoDeposito_Click(object sender, EventArgs e)
@@ -67,6 +66,19 @@ namespace BankingWindowsFormsApp
             textoNumero.Text = Convert.ToString(selecionada.Numero);
             textoTitular.Text = selecionada.Titular.Nome;
             textoSaldo.Text = Convert.ToString(selecionada.Saldo);
+        }
+
+        public void AdicionaConta(Conta conta)
+        {
+            contas[numeroDeContas] = conta;
+            numeroDeContas++;
+            comboContas.Items.Add("Titular: " + conta.Titular.Nome);
+        }
+
+        private void botaoNovaConta_Click(object sender, EventArgs e)
+        {
+            FormCadastroConta formularioDeCadastro = new FormCadastroConta(this);
+            formularioDeCadastro.ShowDialog();
         }
     }
 }
