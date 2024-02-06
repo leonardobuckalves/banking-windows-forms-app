@@ -9,21 +9,21 @@ namespace BankingWindowsFormsApp
 {
     internal class Conta
     {
-        public int numero;
-        public Cliente titular;
-        public double saldo;
+        public int Numero { get; set; }
+        public Cliente Titular { get; set; }
+        public double Saldo { get; private set; }
 
         public void Deposita(double valor)
         {
-            saldo += valor;
+            Saldo += valor;
         }
 
         public bool Saca(double valor)
         {
-            if (valor <= saldo)
+            if (valor <= Saldo)
             {
                 MessageBox.Show("Saque realizado com sucesso");
-                saldo -= valor;
+                Saldo -= valor;
                 return true;
             }
             else
