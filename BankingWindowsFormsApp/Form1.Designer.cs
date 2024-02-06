@@ -39,7 +39,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.botaoBusca = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textoIndice = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // textoTitular
@@ -138,24 +143,65 @@
             this.groupBox1.Controls.Add(this.textoValor);
             this.groupBox1.Controls.Add(this.botaoDeposita);
             this.groupBox1.Controls.Add(this.botaoSaque);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(12, 137);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(340, 302);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Conta";
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.textoIndice);
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.botaoBusca);
+            this.groupBox2.Location = new System.Drawing.Point(12, 12);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(340, 119);
+            this.groupBox2.TabIndex = 13;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Busca de Conta";
+            // 
+            // botaoBusca
+            // 
+            this.botaoBusca.Location = new System.Drawing.Point(228, 37);
+            this.botaoBusca.Name = "botaoBusca";
+            this.botaoBusca.Size = new System.Drawing.Size(75, 23);
+            this.botaoBusca.TabIndex = 0;
+            this.botaoBusca.Text = "Buscar";
+            this.botaoBusca.UseVisualStyleBackColor = true;
+            this.botaoBusca.Click += new System.EventHandler(this.botaoBusca_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(27, 42);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(84, 13);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Escolha a conta";
+            // 
+            // textoIndice
+            // 
+            this.textoIndice.Location = new System.Drawing.Point(122, 39);
+            this.textoIndice.Name = "textoIndice";
+            this.textoIndice.Size = new System.Drawing.Size(100, 20);
+            this.textoIndice.TabIndex = 2;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(404, 374);
+            this.ClientSize = new System.Drawing.Size(364, 454);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -172,6 +218,10 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.TextBox textoIndice;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button botaoBusca;
     }
 }
 
