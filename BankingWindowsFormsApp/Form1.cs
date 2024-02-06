@@ -31,7 +31,7 @@ namespace BankingWindowsFormsApp
             
 
             MessageBox.Show("Criando nova conta");
-            MessageBox.Show($"Conta: {conta.Numero}, Titular: {conta.Titular.nome}, Saldo: {conta.Saldo}.");
+            MessageBox.Show($"Conta: {conta.Numero}, Titular: {conta.Titular.Nome}, Saldo: {conta.Saldo}.");
 
             MessageBox.Show("Depositando 100");
             conta.Deposita(100);
@@ -53,12 +53,12 @@ namespace BankingWindowsFormsApp
             conta2.Deposita(100);
 
             MessageBox.Show("Criando nova conta");
-            MessageBox.Show($"Conta: {conta2.Numero}, Titular: {conta2.Titular.nome}, Saldo: {conta2.Saldo}.");
+            MessageBox.Show($"Conta: {conta2.Numero}, Titular: {conta2.Titular.Nome}, Saldo: {conta2.Saldo}.");
 
             MessageBox.Show("Transferindo 600 de conta para conta2");
             conta.Transfere(conta2, 600);
-            MessageBox.Show($"Conta: {conta.Numero}, Titular: {conta.Titular.nome}, Saldo: {conta.Saldo}.");
-            MessageBox.Show($"Conta: {conta2.Numero}, Titular: {conta2.Titular.nome}, Saldo: {conta2.Saldo}.");
+            MessageBox.Show($"Conta: {conta.Numero}, Titular: {conta.Titular.Nome}, Saldo: {conta.Saldo}.");
+            MessageBox.Show($"Conta: {conta2.Numero}, Titular: {conta2.Titular.Nome}, Saldo: {conta2.Saldo}.");
         }
     }
 }
