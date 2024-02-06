@@ -32,8 +32,11 @@ namespace BankingWindowsFormsApp
             conta.Deposita(100);
             MessageBox.Show("Saldo: " + conta.saldo);
             MessageBox.Show("Sacando 300");
-            conta.Saca(300);
-            MessageBox.Show("Saldo: " + conta.saldo);
+            if (conta.Saca(300))
+            {
+                MessageBox.Show("Novo saldo: " + conta.saldo);
+            }
+            
 
             // instanciar outra nova conta, mostrar os dados cadastrados, transferir da outra conta para essa conta
             Conta conta2 = new Conta();
@@ -44,7 +47,7 @@ namespace BankingWindowsFormsApp
             MessageBox.Show("Criando nova conta");
             MessageBox.Show($"Conta: {conta2.numero}, Titular: {conta2.titular}, Saldo: {conta2.saldo}.");
 
-            MessageBox.Show("Transferindo 600 da conta para conta2");
+            MessageBox.Show("Transferindo 600 de conta para conta2");
             conta.Transfere(conta2, 600);
             MessageBox.Show($"Conta: {conta.numero}, Titular: {conta.titular}, Saldo: {conta.saldo}.");
             MessageBox.Show($"Conta: {conta2.numero}, Titular: {conta2.titular}, Saldo: {conta2.saldo}.");

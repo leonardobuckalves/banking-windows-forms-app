@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace BankingWindowsFormsApp
 {
@@ -17,9 +18,19 @@ namespace BankingWindowsFormsApp
             saldo += valor;
         }
 
-        public void Saca(double valor)
+        public bool Saca(double valor)
         {
-            saldo -= valor;
+            if (valor <= saldo)
+            {
+                MessageBox.Show("Saque realizado com sucesso");
+                saldo -= valor;
+                return true;
+            }
+            else
+            {
+                MessageBox.Show("Saldo insuficiente");
+                return false;
+            }
         }
 
         public void Transfere(Conta contaDestino, double valor)
