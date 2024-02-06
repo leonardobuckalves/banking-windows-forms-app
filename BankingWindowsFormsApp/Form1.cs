@@ -21,8 +21,7 @@ namespace BankingWindowsFormsApp
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            this.conta = new Conta();
-            conta.Numero = 1;
+            this.conta = new ContaCorrente(1);
             Cliente cliente = new Cliente("Leonardo");
             conta.Titular = cliente;
 
