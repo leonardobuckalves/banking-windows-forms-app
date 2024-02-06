@@ -12,53 +12,41 @@ namespace BankingWindowsFormsApp
 {
     public partial class Form1 : Form
     {
+        private Conta conta;
+
         public Form1()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Form1_Load(object sender, EventArgs e)
         {
-            // criar novo cliente
-            Cliente cliente = new Cliente();
-
-            // instanciar uma nova conta, mostrar os dados cadastrados, depositar e sacar valores
-            Conta conta = new Conta();
+            this.conta = new Conta();
             conta.Numero = 1;
+            Cliente cliente = new Cliente("Leonardo");
             conta.Titular = cliente;
-            conta.Titular.Nome = "Cliente";
-            conta.Deposita(1000);
-            
 
-            MessageBox.Show("Criando nova conta");
-            MessageBox.Show($"Conta: {conta.Numero}, Titular: {conta.Titular.Nome}, Saldo: {conta.Saldo}.");
+            textoTitular.Text = conta.Titular.Nome;
+            textoNumero.Text = Convert.ToString(conta.Numero);
+            textoSaldo.Text = Convert.ToString(conta.Saldo);
+        }
 
-            MessageBox.Show("Depositando 100");
-            conta.Deposita(100);
-            MessageBox.Show("Saldo: " + conta.Saldo);
-            MessageBox.Show("Sacando 300");
-            if (conta.Saca(300))
+        private void botaoDeposito_Click(object sender, EventArgs e)
+        {
+            string valorDigitado = textoValor.Text;
+            double valorOperacao = Convert.ToDouble(valorDigitado);
+            this.conta.Deposita(valorOperacao);
+            textoSaldo.Text = Convert.ToString(this.conta.Saldo);
+        }
+
+        private void botaoSaque_Click(object sender, EventArgs e)
+        {
+            string valorDigitado = textoValor.Text;
+            double valorOperacao = Convert.ToDouble(valorDigitado);
+            if (conta.Saca(valorOperacao))
             {
-                MessageBox.Show("Novo saldo: " + conta.Saldo);
+                textoSaldo.Text = Convert.ToString(this.conta.Saldo);
             }
-
-            // criar outro novo cliente
-            Cliente cliente2 = new Cliente();
-
-            // instanciar outra nova conta, mostrar os dados cadastrados, transferir da outra conta para essa conta
-            Conta conta2 = new Conta();
-            conta2.Numero = 2;
-            conta2.Titular = cliente2;
-            conta2.Titular.Nome = "Cliente2";
-            conta2.Deposita(100);
-
-            MessageBox.Show("Criando nova conta");
-            MessageBox.Show($"Conta: {conta2.Numero}, Titular: {conta2.Titular.Nome}, Saldo: {conta2.Saldo}.");
-
-            MessageBox.Show("Transferindo 600 de conta para conta2");
-            conta.Transfere(conta2, 600);
-            MessageBox.Show($"Conta: {conta.Numero}, Titular: {conta.Titular.Nome}, Saldo: {conta.Saldo}.");
-            MessageBox.Show($"Conta: {conta2.Numero}, Titular: {conta2.Titular.Nome}, Saldo: {conta2.Saldo}.");
         }
     }
 }

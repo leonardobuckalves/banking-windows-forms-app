@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BankingWindowsFormsApp
 {
-    internal class Cliente
+    public class Cliente
     {
         public string Nome { get; set; }
         public string Rg { get; set; }

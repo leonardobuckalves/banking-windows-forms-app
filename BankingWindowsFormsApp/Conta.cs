@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace BankingWindowsFormsApp
 {
-    internal class Conta
+    public class Conta
     {
         public int Numero { get; set; }
         public Cliente Titular { get; set; }
@@ -16,6 +16,7 @@ namespace BankingWindowsFormsApp
         public void Deposita(double valor)
         {
             Saldo += valor;
+            MessageBox.Show("Deposito realizado com sucesso");
         }
 
         public bool Saca(double valor)
