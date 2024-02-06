@@ -10,7 +10,7 @@ namespace BankingWindowsFormsApp
     internal class Conta
     {
         public int numero;
-        public string titular;
+        public Cliente titular;
         public double saldo;
 
         public void Deposita(double valor)
