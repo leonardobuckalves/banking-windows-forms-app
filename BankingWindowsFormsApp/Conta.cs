@@ -21,5 +21,11 @@ namespace BankingWindowsFormsApp
         {
             saldo -= valor;
         }
+
+        public void Transfere(Conta contaDestino, double valor)
+        {
+            Saca(valor);
+            contaDestino.Deposita(valor);
+        }
     }
 }
