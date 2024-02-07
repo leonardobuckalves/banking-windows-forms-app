@@ -80,5 +80,21 @@ namespace BankingWindowsFormsApp
             FormCadastroConta formularioDeCadastro = new FormCadastroConta(this);
             formularioDeCadastro.ShowDialog();
         }
+
+        private void botaoImpostos_Click(object sender, EventArgs e)
+        {
+            ContaCorrente conta = new ContaCorrente(10);
+            conta.Deposita(200.0);
+            MessageBox.Show("imposta da conta corrente: " + conta.CalcularTributo());
+            
+            ITributavel t = conta;
+            MessageBox.Show("imposto da conta pela interface: " + t.CalcularTributo());
+
+            SeguroDeVida sv = new SeguroDeVida();
+            MessageBox.Show("imposto do seguro: " + sv.CalcularTributo());
+
+            t = sv;
+            MessageBox.Show("imposto da conta pela interface: " + t.CalcularTributo());
+        }
     }
 }

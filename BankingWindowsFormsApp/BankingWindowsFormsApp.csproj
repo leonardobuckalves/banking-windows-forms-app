@@ -60,6 +60,7 @@
     <Compile Include="FormCadastroConta.Designer.cs">
       <DependentUpon>FormCadastroConta.cs</DependentUpon>
     </Compile>
+    <Compile Include="ITributavel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">

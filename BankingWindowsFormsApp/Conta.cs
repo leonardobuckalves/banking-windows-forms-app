@@ -46,23 +46,24 @@ namespace BankingWindowsFormsApp
         }
     }
 
-    public class ContaPoupanca : Conta
+    public class ContaPoupanca : Conta, ITributavel
     {
-        public ContaPoupanca(int numero) : base(numero)
-        {
-        }
+        public ContaPoupanca(int numero) : base(numero) { }
 
         public override bool Saca(double valor)
         {
             return base.Saca(valor + 0.10);
         }
+
+        public double CalcularTributo()
+        {
+            return Saldo * 0.02;
+        }
     }
 
-    public class ContaCorrente : Conta
+    public class ContaCorrente : Conta, ITributavel
     {
-        public ContaCorrente(int numero) : base(numero)
-        {
-        }
+        public ContaCorrente(int numero) : base(numero) { }
 
         public override void Deposita(double valor)
         {
@@ -72,6 +73,19 @@ namespace BankingWindowsFormsApp
         public override bool Saca(double valor)
         {
             return base.Saca(valor + 0.05);
+        }
+
+        public double CalcularTributo()
+        {
+            return Saldo * 0.03;
+        }
+    }
+
+    public class SeguroDeVida : ITributavel
+    {
+        public double CalcularTributo()
+        {
+            return 42;
         }
     }
 }
