@@ -24,7 +24,7 @@ namespace BankingWindowsFormsApp
         {
             this.contas = new Conta[10];
 
-            Conta c1 = new Conta(1);
+            Conta c1 = new ContaPoupanca(1);
             c1.Titular = new Cliente("Leonardo");
             AdicionaConta(c1);
 

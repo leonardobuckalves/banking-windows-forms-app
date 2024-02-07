@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace BankingWindowsFormsApp
 {
-    public class Conta
+    public abstract class Conta
     {
         public Conta(int numero)
         {
@@ -16,28 +16,11 @@ namespace BankingWindowsFormsApp
 
         public int Numero { get; set; }
         public Cliente Titular { get; set; }
-        public double Saldo { get; private set; }
+        public double Saldo { get; protected set; }
 
-        public virtual void Deposita(double valor)
-        {
-            Saldo += valor;
-            MessageBox.Show("Deposito realizado com sucesso");
-        }
+        public abstract void Deposita(double valor);
 
-        public virtual bool Saca(double valor)
-        {
-            if (valor <= Saldo)
-            {
-                MessageBox.Show("Saque realizado com sucesso");
-                Saldo -= valor;
-                return true;
-            }
-            else
-            {
-                MessageBox.Show("Saldo insuficiente");
-                return false;
-            }
-        }
+        public abstract bool Saca(double valor);
 
         public void Transfere(Conta contaDestino, double valor)
         {
@@ -50,9 +33,24 @@ namespace BankingWindowsFormsApp
     {
         public ContaPoupanca(int numero) : base(numero) { }
 
+        public override void Deposita(double valor)
+        {
+            Saldo += valor;
+            MessageBox.Show("Deposito realizado com sucesso");
+        }
         public override bool Saca(double valor)
         {
-            return base.Saca(valor + 0.10);
+            if (valor <= Saldo)
+            {
+                MessageBox.Show("Saque realizado com sucesso");
+                Saldo -= valor + 0.10;
+                return true;
+            }
+            else
+            {
+                MessageBox.Show("Saldo insuficiente");
+                return false;
+            }
         }
 
         public double CalcularTributo()
@@ -67,12 +65,23 @@ namespace BankingWindowsFormsApp
 
         public override void Deposita(double valor)
         {
-            base.Deposita(valor - 0.10);
+            Saldo += valor - 0.10;
+            MessageBox.Show("Deposito realizado com sucesso");
         }
 
         public override bool Saca(double valor)
         {
-            return base.Saca(valor + 0.05);
+            if (valor <= Saldo)
+            {
+                MessageBox.Show("Saque realizado com sucesso");
+                Saldo -= valor + 0.05;
+                return true;
+            }
+            else
+            {
+                MessageBox.Show("Saldo insuficiente");
+                return false;
+            }
         }
 
         public double CalcularTributo()
