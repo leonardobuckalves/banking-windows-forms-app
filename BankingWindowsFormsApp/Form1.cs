@@ -24,15 +24,15 @@ namespace BankingWindowsFormsApp
         {
             this.contas = new Conta[10];
 
-            Conta c1 = new ContaPoupanca(1);
+            Conta c1 = new ContaPoupanca();
             c1.Titular = new Cliente("Leonardo");
             AdicionaConta(c1);
 
-            Conta c2 = new ContaPoupanca(2);
+            Conta c2 = new ContaPoupanca();
             c2.Titular = new Cliente("Felipe");
             AdicionaConta(c2);
 
-            Conta c3 = new ContaCorrente(3);
+            Conta c3 = new ContaCorrente();
             c3.Titular = new Cliente("Renato");
             AdicionaConta(c3);
         }
@@ -83,7 +83,7 @@ namespace BankingWindowsFormsApp
 
         private void botaoImpostos_Click(object sender, EventArgs e)
         {
-            ContaCorrente conta = new ContaCorrente(10);
+            ContaCorrente conta = new ContaCorrente();
             conta.Deposita(200.0);
             MessageBox.Show("imposta da conta corrente: " + conta.CalcularTributo());
             

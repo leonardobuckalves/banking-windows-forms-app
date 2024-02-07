@@ -9,10 +9,13 @@ namespace BankingWindowsFormsApp
 {
     public abstract class Conta
     {
-        public Conta(int numero)
+        public Conta()
         {
-            this.Numero = numero;
+            Conta.numeroDeContas++;
+            Numero = Conta.numeroDeContas;
         }
+
+        private static int numeroDeContas;
 
         public int Numero { get; set; }
         public Cliente Titular { get; set; }
@@ -27,12 +30,15 @@ namespace BankingWindowsFormsApp
             Saca(valor);
             contaDestino.Deposita(valor);
         }
+
+        public static int ProximoNumero()
+        {
+            return numeroDeContas + 1;
+        }
     }
 
     public class ContaPoupanca : Conta, ITributavel
     {
-        public ContaPoupanca(int numero) : base(numero) { }
-
         public override void Deposita(double valor)
         {
             Saldo += valor;
@@ -61,8 +67,6 @@ namespace BankingWindowsFormsApp
 
     public class ContaCorrente : Conta, ITributavel
     {
-        public ContaCorrente(int numero) : base(numero) { }
-
         public override void Deposita(double valor)
         {
             Saldo += valor - 0.10;

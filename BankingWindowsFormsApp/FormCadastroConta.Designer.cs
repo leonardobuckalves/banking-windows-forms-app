@@ -59,7 +59,6 @@
             this.textoNumero.Name = "textoNumero";
             this.textoNumero.Size = new System.Drawing.Size(100, 20);
             this.textoNumero.TabIndex = 2;
-            this.textoNumero.TextChanged += new System.EventHandler(this.textoNumero_TextChanged);
             // 
             // textoTitular
             // 
@@ -67,7 +66,6 @@
             this.textoTitular.Name = "textoTitular";
             this.textoTitular.Size = new System.Drawing.Size(100, 20);
             this.textoTitular.TabIndex = 3;
-            this.textoTitular.TextChanged += new System.EventHandler(this.textoTitular_TextChanged);
             // 
             // botaoCadastro
             // 
