@@ -35,5 +35,10 @@ namespace BankingWindowsFormsApp.Contas
         {
             return numeroDeContas + 1;
         }
+
+        public override String ToString()
+        {
+            return "Titular: " + Titular.Nome;
+        }
     }
 }

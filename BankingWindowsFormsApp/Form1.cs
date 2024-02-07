@@ -40,8 +40,7 @@ namespace BankingWindowsFormsApp
 
         private void botaoDeposito_Click(object sender, EventArgs e)
         {
-            int indice = comboContas.SelectedIndex;
-            Conta selecionada = this.contas[indice];
+            Conta selecionada = (Conta)comboContas.SelectedItem;
 
             try
             {
@@ -58,8 +57,7 @@ namespace BankingWindowsFormsApp
 
         private void botaoSaque_Click(object sender, EventArgs e)
         {
-            int indice = comboContas.SelectedIndex;
-            Conta selecionada = this.contas[indice];
+            Conta selecionada = (Conta)comboContas.SelectedItem;
 
             double valorOperacao = Convert.ToDouble(textoValor.Text);
             if (selecionada.Saca(valorOperacao))
@@ -81,7 +79,7 @@ namespace BankingWindowsFormsApp
         {
             contas[numeroDeContas] = conta;
             numeroDeContas++;
-            comboContas.Items.Add("Titular: " + conta.Titular.Nome);
+            comboContas.Items.Add(conta);
         }
 
         private void botaoNovaConta_Click(object sender, EventArgs e)
