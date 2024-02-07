@@ -41,6 +41,10 @@ namespace BankingWindowsFormsApp
     {
         public override void Deposita(double valor)
         {
+            if (valor < 0.0)
+            {
+                throw new ArgumentException();
+            }
             Saldo += valor;
             MessageBox.Show("Deposito realizado com sucesso");
         }

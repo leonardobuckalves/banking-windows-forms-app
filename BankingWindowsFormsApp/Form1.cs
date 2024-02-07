@@ -42,9 +42,17 @@ namespace BankingWindowsFormsApp
             int indice = comboContas.SelectedIndex;
             Conta selecionada = this.contas[indice];
 
-            double valorOperacao = Convert.ToDouble(textoValor.Text);
-            selecionada.Deposita(valorOperacao);
-            textoSaldo.Text = Convert.ToString(selecionada.Saldo);
+            try
+            {
+                double valorOperacao = Convert.ToDouble(textoValor.Text);
+                selecionada.Deposita(valorOperacao);
+                textoSaldo.Text = Convert.ToString(selecionada.Saldo);
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Argumento Inválido");
+            }
         }
 
         private void botaoSaque_Click(object sender, EventArgs e)
