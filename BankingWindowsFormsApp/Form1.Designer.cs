@@ -47,6 +47,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.botaoNovaConta = new System.Windows.Forms.Button();
             this.botaoImpostos = new System.Windows.Forms.Button();
+            this.botaoRelatorio = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -224,7 +225,7 @@
             // 
             // botaoImpostos
             // 
-            this.botaoImpostos.Location = new System.Drawing.Point(277, 332);
+            this.botaoImpostos.Location = new System.Drawing.Point(93, 332);
             this.botaoImpostos.Name = "botaoImpostos";
             this.botaoImpostos.Size = new System.Drawing.Size(75, 23);
             this.botaoImpostos.TabIndex = 14;
@@ -232,11 +233,22 @@
             this.botaoImpostos.UseVisualStyleBackColor = true;
             this.botaoImpostos.Click += new System.EventHandler(this.botaoImpostos_Click);
             // 
+            // botaoRelatorio
+            // 
+            this.botaoRelatorio.Location = new System.Drawing.Point(174, 332);
+            this.botaoRelatorio.Name = "botaoRelatorio";
+            this.botaoRelatorio.Size = new System.Drawing.Size(75, 23);
+            this.botaoRelatorio.TabIndex = 15;
+            this.botaoRelatorio.Text = "Relatórios";
+            this.botaoRelatorio.UseVisualStyleBackColor = true;
+            this.botaoRelatorio.Click += new System.EventHandler(this.botaoRelatorio_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(364, 372);
+            this.Controls.Add(this.botaoRelatorio);
             this.Controls.Add(this.botaoImpostos);
             this.Controls.Add(this.botaoNovaConta);
             this.Controls.Add(this.groupBox2);
@@ -272,6 +284,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textoBuscaTitular;
         private System.Windows.Forms.Button botaoBusca;
+        private System.Windows.Forms.Button botaoRelatorio;
     }
 }
 

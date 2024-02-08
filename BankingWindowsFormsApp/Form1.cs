@@ -118,5 +118,11 @@ namespace BankingWindowsFormsApp
             textoNumero.Text = Convert.ToString(conta.Numero);
             textoSaldo.Text = Convert.ToString(conta.Saldo);
         }
+
+        private void botaoRelatorio_Click(object sender, EventArgs e)
+        {
+            FormRelatorios form = new FormRelatorios(contas);
+            form.ShowDialog();
+        }
     }
 }
