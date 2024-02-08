@@ -13,6 +13,8 @@ namespace BankingWindowsFormsApp
 {
     public partial class Form1 : Form
     {
+        private Dictionary<string, Conta> dicionario;
+        
         private List<Conta> contas;
 
         public Form1()
@@ -23,6 +25,8 @@ namespace BankingWindowsFormsApp
         private void Form1_Load(object sender, EventArgs e)
         {
             contas = new List<Conta>();
+
+            dicionario = new Dictionary<string, Conta>();
 
             Conta c1 = new ContaPoupanca();
             c1.Titular = new Cliente("Leonardo");
@@ -78,6 +82,8 @@ namespace BankingWindowsFormsApp
         {
             contas.Add(conta);
             comboContas.Items.Add(conta);
+
+            dicionario.Add(conta.Titular.Nome, conta);
         }
 
         private void botaoNovaConta_Click(object sender, EventArgs e)
@@ -100,6 +106,17 @@ namespace BankingWindowsFormsApp
 
             t = sv;
             MessageBox.Show("imposto da conta pela interface: " + t.CalcularTributo());
+        }
+
+        private void botaoBusca_Click(object sender, EventArgs e)
+        {
+            string nomeTitular = textoBuscaTitular.Text;
+
+            Conta conta = dicionario[nomeTitular];
+
+            textoTitular.Text = conta.Titular.Nome;
+            textoNumero.Text = Convert.ToString(conta.Numero);
+            textoSaldo.Text = Convert.ToString(conta.Saldo);
         }
     }
 }

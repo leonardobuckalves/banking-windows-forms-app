@@ -40,6 +40,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textoBuscaTitular = new System.Windows.Forms.TextBox();
+            this.botaoBusca = new System.Windows.Forms.Button();
             this.comboContas = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.botaoNovaConta = new System.Windows.Forms.Button();
@@ -153,6 +156,9 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label6);
+            this.groupBox2.Controls.Add(this.textoBuscaTitular);
+            this.groupBox2.Controls.Add(this.botaoBusca);
             this.groupBox2.Controls.Add(this.comboContas);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Location = new System.Drawing.Point(12, 12);
@@ -161,6 +167,32 @@
             this.groupBox2.TabIndex = 13;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Busca de Conta";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(35, 72);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(80, 13);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "Busca por titulo";
+            // 
+            // textoBuscaTitular
+            // 
+            this.textoBuscaTitular.Location = new System.Drawing.Point(117, 66);
+            this.textoBuscaTitular.Name = "textoBuscaTitular";
+            this.textoBuscaTitular.Size = new System.Drawing.Size(122, 20);
+            this.textoBuscaTitular.TabIndex = 13;
+            // 
+            // botaoBusca
+            // 
+            this.botaoBusca.Location = new System.Drawing.Point(245, 66);
+            this.botaoBusca.Name = "botaoBusca";
+            this.botaoBusca.Size = new System.Drawing.Size(75, 23);
+            this.botaoBusca.TabIndex = 12;
+            this.botaoBusca.Text = "Buscar";
+            this.botaoBusca.UseVisualStyleBackColor = true;
+            this.botaoBusca.Click += new System.EventHandler(this.botaoBusca_Click);
             // 
             // comboContas
             // 
@@ -237,6 +269,9 @@
         private System.Windows.Forms.ComboBox comboContas;
         private System.Windows.Forms.Button botaoNovaConta;
         private System.Windows.Forms.Button botaoImpostos;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox textoBuscaTitular;
+        private System.Windows.Forms.Button botaoBusca;
     }
 }
 
