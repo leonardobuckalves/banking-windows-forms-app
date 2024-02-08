@@ -13,8 +13,7 @@ namespace BankingWindowsFormsApp
 {
     public partial class Form1 : Form
     {
-        private Conta[] contas;
-        private int numeroDeContas;
+        private List<Conta> contas;
 
         public Form1()
         {
@@ -23,7 +22,7 @@ namespace BankingWindowsFormsApp
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            this.contas = new Conta[10];
+            contas = new List<Conta>();
 
             Conta c1 = new ContaPoupanca();
             c1.Titular = new Cliente("Leonardo");
@@ -77,8 +76,7 @@ namespace BankingWindowsFormsApp
 
         public void AdicionaConta(Conta conta)
         {
-            contas[numeroDeContas] = conta;
-            numeroDeContas++;
+            contas.Add(conta);
             comboContas.Items.Add(conta);
         }
 
